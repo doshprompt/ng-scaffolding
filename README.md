@@ -102,3 +102,4 @@ myApp
 - Unit Tests: `*.spec.js`
 - e2e Tests: `*.scenario.js`
 - LESS: `*.less`
+- Configs: `{*.conf.js|*.conf.json}`

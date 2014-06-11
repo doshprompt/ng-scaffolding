@@ -1,0 +1,33 @@
+{
+  "name": "ng-scaffolding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doshprompt/ng-scaffolding.git"
+  },
+  "keywords": [
+    "gulp",
+    "angular",
+    "ng",
+    "angularjs",
+    "bootstrap",
+    "boilerplate",
+    "kickstarter"
+  ],
+  "author": "Rahul Doshi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doshprompt/ng-scaffolding/issues"
+  },
+  "homepage": "https://github.com/doshprompt/ng-scaffolding",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.0",
+    "gulp-util": "^2.2.16"
+  }
+}
