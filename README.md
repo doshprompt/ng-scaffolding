@@ -78,8 +78,8 @@ myApp
     - `languages` - resource files for all supported/installed languages.
     - `src` - all source code that will be processed and/or compiled at runtime.
         - `core` - these are the barebones minimum files that have to be loaded up on startup.
-            - `controllers` -
-            - `views` -
+            - `controllers` - base controller(s)
+            - `views` - the most basic of views
         - `features` - these are any additional features offered by the app, each of which belongs to and is bundled along with it's own module.
         - `shared` - modules leveraged by the entire app.
             - `directives` - all directives (they apply app-wide).
@@ -101,4 +101,4 @@ myApp
 - Templates: `*.part.html`
 - Unit Tests: `*.spec.js`
 - e2e Tests: `*.scenario.js`
-- LESS: `*.less.js`
+- LESS: `*.less`
