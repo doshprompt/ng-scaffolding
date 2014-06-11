@@ -39,26 +39,27 @@ myApp
 │   │   ├── features
 │   │   │   ├── login
 │   │   │   │   ├── login.ctrl.js
+│   │   │   │   ├── login.less
+│   │   │   │   ├── login.scenario.js
 │   │   │   │   ├── login.route.js
-│   │   │   │   └── login.part.html
-│   │   │   └── ...
-│   │   ├── less
-│   │   │   ├── login.less
-│   │   │   ├── mixins.less
-│   │   │   ├── myApp.less
-│   │   │   ├── variables.less
+│   │   │   │   ├── login.part.html
+│   │   │   │   └── ...
 │   │   │   └── ...
 │   │   └── shared
 │   │       ├── directives
 │   │       │   ├── myDirective.js
+│   │       │   ├── myDirective.spec.js
 │   │       │   └── ...
+│   │       ├── less
+│   │       │   ├── mixins.less
+│   │       │   ├── myApp.less
+│   │       │   └── variables.less
 │   │       ├── models
 │   │       │   ├── user.js
 │   │       │   └── ...
 │   │       └── services
 │   │           ├── authentication.js
 │   │           └── ...
-│   ├── styles
 │   ├── vendor
 │   ├── 404.html
 │   ├── config.js
@@ -67,13 +68,6 @@ myApp
 │   ├── karma.conf.js
 │   ├── protractor.conf.js
 │   └── ...
-├── tests
-│   ├── unit
-│   │   ├── directives.spec.js
-│   │   └── ...
-│   └── e2e
-│       ├── directives.scenario.js
-│       └── ...
 ├── bower.json
 ├── package.json
 ├── .bowerrc
@@ -87,9 +81,9 @@ myApp
             - `controllers` -
             - `views` -
         - `features` - these are any additional features offered by the app, each of which belongs to and is bundled along with it's own module.
-        - `less` - custom LESS pre-processor files.
-        - `shared` - common modules leveraged by the entire app.
+        - `shared` - modules leveraged by the entire app.
             - `directives` - all directives (they apply app-wide).
+            - `less` - common LESS pre-processor files.
             - `models` - objects created by the `$resource` factory.
             - `services` - contains any stateful services that must persist data across the app.
 - `build` - customizable build settings, including test runners.
@@ -107,3 +101,4 @@ myApp
 - Templates: `*.part.html`
 - Unit Tests: `*.spec.js`
 - e2e Tests: `*.scenario.js`
+- LESS: `*.less.js`
