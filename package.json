@@ -28,6 +28,10 @@
   "private": true,
   "devDependencies": {
     "gulp": "^3.8.0",
-    "gulp-util": "^2.2.16"
+    "gulp-util": "^2.2.16",
+    "karma": "^0.12.16",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "matchdep": "^0.3.0"
   }
 }
