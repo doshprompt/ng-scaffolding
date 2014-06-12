@@ -3,11 +3,11 @@ angular.module('ngScaffolding.docs')
         function ($routeProvider) {
             'use strict';
             
-            $routeProvider.
-                when('/home', {
+            $routeProvider
+                .when('/home', {
                     templateUrl: 'src/core/views/_home.html',
-                }).
-                otherwise({
+                })
+                .otherwise({
                     redirectTo: '/home'
                 });
         }

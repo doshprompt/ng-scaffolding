@@ -1,5 +1,5 @@
 <!-- Static navbar -->
-<div class="navbar navbar-default navbar-static-top" role="navigation" data-ng-controller="NavControl">
+<div class="navbar navbar-default navbar-static-top" role="navigation" data-ng-controller="NavControl" data-bs-navbar>
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,14 +12,14 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="#">
+                <li data-match-route="/home">
+                    <a href="#home">
                         <i class="fa fa-home"></i>
                         Home
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li data-match-route="/about">
+                    <a href="#about">
                         <i class="fa fa-info-circle"></i>
                         About
                     </a>

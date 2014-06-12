@@ -4,11 +4,13 @@
     var ngScaffolding = {
         definitions: {
             'ngScaffolding.docs.footer': [],
-            'ngScaffolding.docs.navbar': []
+            'ngScaffolding.docs.navbar': [],
+            'ngScaffolding.docs.about': []
         },
         dependencies: [
             'ngRoute',
-            'ngLocalize',
+            'mgcrea.ngStrap',
+            'ngLocalize'
         ],
         appName: 'ngScaffolding.docs'
     };
