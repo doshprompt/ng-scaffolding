@@ -114,7 +114,9 @@ myApp
 - `.bowerrc` - the Bower configuration file. This tells Bower to install bower_components into the `vendor/` directory instead.
 - `.gitignore` - top level .gitignore file
 
-### File Naming Conventions
+### Naming Conventions
+
+#### Files
 
 - Controllers: `*.ctrl.js`
 - Resource Files: `*.lang.json`
@@ -124,6 +126,12 @@ myApp
 - E2E Tests: `*.scenario.js`
 - LESS: `*.less`
 - Configs: `{*.conf.js|*.conf.json}`
+
+#### Angular-specific
+
+- Controller Names: `*Control`
+- Module Names: `TODO`
+- Services: `TODO`
 
 ### Resources
 
