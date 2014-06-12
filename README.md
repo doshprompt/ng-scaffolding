@@ -9,8 +9,6 @@
     - [Overall Directory Structure](#overall-directory-structure)
     - [File Naming Conventions](#file-naming-conventions)
 
-___
-
 ## Overview
 
 Kickstart your [AngularJS](http://angularjs.org/) apps with a solid foundation.
