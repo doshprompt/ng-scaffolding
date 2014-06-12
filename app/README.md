@@ -1,6 +1,6 @@
 # The `app` Directory
 
-The `app/` folder contains all of the files that are hosted during development. 
+The `app/` folder contains all of the files that are hosted during development.
 
 ```
 app
