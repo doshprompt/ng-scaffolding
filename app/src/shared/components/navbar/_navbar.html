@@ -1,0 +1,62 @@
+<!-- Static navbar -->
+<div class="navbar navbar-default navbar-static-top" role="navigation" data-ng-controller="NavControl" data-bs-navbar>
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">ngScaffolding</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li data-match-route="/home">
+                    <a href="#home">
+                        <i class="fa fa-home"></i>
+                        Home
+                    </a>
+                </li>
+                <li data-match-route="/about">
+                    <a href="#about">
+                        <i class="fa fa-info-circle"></i>
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/doshprompt/ng-scaffolding#readme">
+                        <i class="fa fa-book"></i>
+                        Docs
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/doshprompt/ng-scaffolding">
+                        <i class="fa fa-github"></i>
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/doshprompt/ng-scaffolding/issues">
+                        <i class="fa fa-comments"></i>
+                        Support
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-globe"></i>
+                        <span data-ng-bind="langDisplayText"></span>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li data-ng-repeat="lang in supportedLang">
+                            <a href="#" data-ng-bind="localeData[lang]"></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</div>

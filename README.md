@@ -2,13 +2,24 @@
 
 *An opinionated boilerplate for AngularJS + Bootstrap*
 
-___
-
 ## Table of Contents
 
+- [Overview](#overview)
 - [Learn](#learn)
     - [Overall Directory Structure](#overall-directory-structure)
     - [File Naming Conventions](#file-naming-conventions)
+
+___
+
+## Overview
+
+Kickstart your [AngularJS](http://angularjs.org/) apps with a solid foundation.
+
+It is based on and inspired by a number of boilerplate projects already available out there on the web,
+and borrows heavily from the following list including but not limited to:
+
+- [ngBoilerplate](http://bit.ly/ngBoilerplate)
+- [ng-launchpad](http://www.samora.me/ng-launchpad)
 
 ## Learn
 
@@ -46,6 +57,12 @@ myApp
 │   │   │   │   └── ...
 │   │   │   └── ...
 │   │   └── shared
+│   │       ├── components
+│   │       │   ├── footer
+│   │       │   │   ├── _footer.html
+│   │       │   │   ├── footer.ctrl.js
+│   │       │   │   └── ...
+│   │       │   └── ...
 │   │       ├── directives
 │   │       │   ├── myDirective.js
 │   │       │   ├── myDirective.spec.js

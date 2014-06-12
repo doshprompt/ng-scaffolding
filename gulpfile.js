@@ -9,6 +9,13 @@ require('matchdep')
         global[module.replace(new RegExp('^gulp-'), '')] = require(module);
     });
 
+gulp.task('less', function () {
+    gulp.src(config.files.less.src)
+        .pipe(concat('ngScaffolding.css'))
+        .pipe(less())
+        .pipe(gulp.dest(config.files.less.dest));
+});
+
 gulp.task('unit', function (done) {
     karma.start({
         configFile: path.resolve(config.tests.unit),
