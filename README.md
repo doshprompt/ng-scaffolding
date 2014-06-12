@@ -115,6 +115,6 @@ myApp
 - Routing: `*.route.js`
 - Templates: `*.part.html`
 - Unit Tests: `*.spec.js`
-- e2e Tests: `*.scenario.js`
+- E2E Tests: `*.scenario.js`
 - LESS: `*.less`
 - Configs: `{*.conf.js|*.conf.json}`
