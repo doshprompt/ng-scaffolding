@@ -17,7 +17,9 @@ app
 ├── src
 │   └── <app logic>
 ├── vendor
-│   └── <lib>
+│   ├── angular
+│   ├── bootstrap
+│   └── ...
 ├── 404.html
 ├── config.js
 └── index.html
@@ -26,7 +28,7 @@ app
 - `assets` - static files like fonts and images. Sub-folders are pretty self-explanatory.
 - `languages` - resource files for all supported/installed languages.
 - `src` - source code that will be processed and/or compiled at runtime.
-- `vendor` - third-party libraries.
+- `vendor` - third-party libraries (aka lib)
 - `config.js` - configuration file specific to this environment.
 - `index.html` - this is the HTML document of the single-page application. See below.
 

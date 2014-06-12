@@ -9,7 +9,9 @@
     - [Philosophy](#philosophy)
 - [Learn](#learn)
     - [Overall Directory Structure](#overall-directory-structure)
-    - [File Naming Conventions](#file-naming-conventions)
+    - [Naming Conventions](#file-naming-conventions)
+        - [Files](#files)
+        - [ng-specific](#angular-specific)
     - [Resources](#resources)
 
 ## Overview
