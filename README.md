@@ -10,6 +10,7 @@
 - [Learn](#learn)
     - [Overall Directory Structure](#overall-directory-structure)
     - [File Naming Conventions](#file-naming-conventions)
+    - [Resources](#resources)
 
 ## Overview
 
@@ -32,16 +33,16 @@ However, `ngScaffolding` is simpler and differs in a few ways:
 - Development build has a similar directory structure to production. However the files are not minified and compressed.
 - No planned support for CoffeeScript, it's all in vanilla JavaScript.
 
-`ngScaffolding` is a simpler than `ngBoilerplate` on purpose, yet keeps the same basic principles and ideas intact.
+`ngScaffolding` is a simpler than `ngBoilerplate` on purpose, yet keeps the same basic principles and ideas.
 
 ##### Key Features
 
-- Modular application structure to encourage component re-use. If you don't know why this is important, read
-  [this](https://medium.com/opinionated-angularjs/9f01b594bf06).
+- Modular application structure to encourage component re-use.
 - Automagically minify, compress, uglify and package files for production.
 - Built-in development server which reloads the page on file changes.
 - Automagically re-run tests on file changes.
 - Use Less to simplify your CSS.
+- 
 
 ### Purpose
 
@@ -92,82 +93,23 @@ At a high level, the structure looks roughly something like this:
 ```
 myApp
 ├── app
-│   ├── assets
-│   ├── languages
-│   │   ├── en-US
-│   │   │   ├── common.lang.json
-│   │   │   └── ...
-│   │   └── ...
-│   ├── src
-│   │   ├── core
-│   │   │   ├── views
-│   │   │   │   ├── _home.html
-│   │   │   │   └── ...
-│   │   │   ├── controllers
-│   │   │   │   ├── main.ctrl.js
-│   │   │   │   └── ...
-│   │   │   ├── application.js
-│   │   │   ├── declarations.js
-│   │   │   └── routes.js
-│   │   ├── features
-│   │   │   ├── login
-│   │   │   │   ├── login.ctrl.js
-│   │   │   │   ├── login.less
-│   │   │   │   ├── login.scenario.js
-│   │   │   │   ├── login.route.js
-│   │   │   │   ├── login.part.html
-│   │   │   │   └── ...
-│   │   │   └── ...
-│   │   └── shared
-│   │       ├── components
-│   │       │   ├── footer
-│   │       │   │   ├── _footer.html
-│   │       │   │   ├── footer.ctrl.js
-│   │       │   │   └── ...
-│   │       │   └── ...
-│   │       ├── directives
-│   │       │   ├── myDirective.js
-│   │       │   ├── myDirective.spec.js
-│   │       │   └── ...
-│   │       ├── less
-│   │       │   ├── mixins.less
-│   │       │   ├── myApp.less
-│   │       │   └── variables.less
-│   │       ├── models
-│   │       │   ├── user.js
-│   │       │   └── ...
-│   │       └── services
-│   │           ├── authentication.js
-│   │           └── ...
-│   ├── vendor
-│   ├── 404.html
-│   ├── config.js
-│   └── index.html
+│   └── <development sandbox>
 ├── build
 │   ├── karma.conf.js
 │   ├── protractor.conf.js
 │   └── ...
 ├── bower.json
+├── gulpfile.js
 ├── package.json
 ├── .bowerrc
 └── .gitignore
 ```
  
 - `app` - the app's root directory.
-    - `languages` - resource files for all supported/installed languages.
-    - `src` - all source code that will be processed and/or compiled at runtime.
-        - `core` - these are the barebones minimum files that have to be loaded up on startup.
-            - `controllers` - base controller(s)
-            - `views` - the most basic of views
-        - `features` - these are any additional features offered by the app, each of which belongs to and is bundled along with it's own module.
-        - `shared` - modules leveraged by the entire app.
-            - `directives` - all directives (they apply app-wide).
-            - `less` - common LESS pre-processor files.
-            - `models` - objects created by the `$resource` factory.
-            - `services` - contains any stateful services that must persist data across the app.
 - `build` - customizable build settings, including test runners.
 - `tests` - all unit and end-to-end test suites go in here.
 - `bower.json` - this is the project configuration for Bower and it contains the list of Bower dependencies that are needed.
+- `gulpfile.js` - build script.
 - `package.json` - metadata about the app, used by NPM and the build script. NPM dependencies are also listed here.
 - `.bowerrc` - the Bower configuration file. This tells Bower to install bower_components into the `vendor/` directory instead.
 - `.gitignore` - top level .gitignore file
@@ -182,3 +124,21 @@ myApp
 - E2E Tests: `*.scenario.js`
 - LESS: `*.less`
 - Configs: `{*.conf.js|*.conf.json}`
+
+### Resources
+
+**Read This**
+
+- [Scalable Code Organization in AngularJS](https://medium.com/opinionated-angularjs/9f01b594bf06)
+
+**Styleguides**
+
+- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
+- [An AngularJS Style Guide for Closure Users at Google](https://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html)
+
+**Further Reading**
+
+- [Best Practices](https://github.com/angular/angular.js/wiki/Best-Practices)
+- [Anti Patterns](https://github.com/angular/angular.js/wiki/Anti-Patterns)
+- [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uyo6cb12dt6w)
+- [Best Practice Recommendations for Angular App Structure](https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub)
