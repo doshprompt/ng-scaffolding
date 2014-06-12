@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>ngScaffolding</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="Rahul Doshi">
+
+        <!-- Le styles -->
+
+        <link href="vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+        <link href="styles/ngScaffolding.css" rel="stylesheet">
+     
+        <!-- TODO: Fav and touch icons -->
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="144x144"
+            href="../assets/ico/apple-touch-icon-144-precomposed.png">
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="114x114"
+            href="../assets/ico/apple-touch-icon-114-precomposed.png">
+        <link
+            rel="apple-touch-icon-precomposed"
+            sizes="72x72"
+            href="../assets/ico/apple-touch-icon-72-precomposed.png">
+        <link
+            rel="apple-touch-icon-precomposed"
+            href="../assets/ico/apple-touch-icon-57-precomposed.png">
+    </head>
+
+    <body data-ng-app="ngScaffolding.docs">
+        <div data-ng-include="'src/shared/components/navbar/_navbar.html'"></div>
+        <div data-ng-view></div>
+        <div data-ng-include="'src/shared/components/footer/_footer.html'"></div>
+        
+        <!-- Le javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+
+        <script src="vendor/jquery/dist/jquery.min.js"></script>
+        <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <script src="vendor/angular/angular.js"></script>
+        <script src="vendor/angular-route/angular-route.min.js"></script>
+        <script src="vendor/angular-cookies/angular-cookies.min.js"></script>
+        <script src="vendor/angular-resource/angular-resource.min.js"></script>
+
+        <script src="vendor/angular-localization/angular-localization.min.js"></script>
+
+        <script src="src/core/declarations.js"></script>
+        <script src="src/core/routes.js"></script>
+
+        <script src="src/shared/components/navbar/navbar.ctrl.js"></script>
+        <script src="src/shared/components/footer/footer.ctrl.js"></script>
+    </body>
+</html>
