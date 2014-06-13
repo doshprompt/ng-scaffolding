@@ -1,0 +1,45 @@
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
+*.swp
+
+# Generic
+*.lock
+._*
+
+# NetBeans
+nbproject
+manifest.mf
+build.xml
+
+# Eclipse
+.project
+.settings
+
+# WebStorm
+.idea/
+
+# Misc
+node_modules/
+.*
+!.htaccess
+!.bowerrc
+
+# App
+vendor/
+config.*
+
+# Compiled & Generated
+public/
+styles/
+
+# All ouptut dirs
+dist/
+out/
+docs/
