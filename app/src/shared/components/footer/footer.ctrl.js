@@ -3,6 +3,6 @@ angular.module('ngScaffolding.docs.footer')
         function ($scope) {
             $scope.footerInfo = {
                 currentYear: new Date().getFullYear()
-            }
+            };
         }
     ]);

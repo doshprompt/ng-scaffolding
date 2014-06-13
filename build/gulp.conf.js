@@ -32,6 +32,8 @@ module.exports = {
                 root: [ 'app' ],
                 livereload: false
             }
-        }
+        },
+        csslint: false,
+        recess: false
     }
 }

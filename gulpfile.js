@@ -10,6 +10,11 @@ var path = require('path'),
     plugins = require('gulp-load-plugins')(),
     config = require('./build/gulp.conf.js');
 
+function errorHandler (err) {
+    util.beep();
+    util.log(err);
+};
+
 // --- Web Server(s) ---
 
 gulp.task('connect:e2e', function (callback) {
@@ -30,6 +35,7 @@ gulp.task('open', function (callback) {
 // Watch Files for Changes
 gulp.task('watch', function () {
     gulp.watch(config.files.less.src, ['less']);
+    gulp.watch(config.files.less.js, ['js']);
 });
 
 // ... And Reload
@@ -49,12 +55,25 @@ gulp.task('clean', function (cb) {
 
 gulp.task('less', function () {
     gulp.src(config.files.less.src)
-        .pipe(plugins.changed('app/src/', {
+        .pipe(plugins.changed(config.files.sourceDir, {
             extension: '.css'
         }))
+        .pipe(plugins.if(config.tasks.recess,
+            plugins.recess(config.tasks.recess instanceof Object ? config.tasks.recess : undefined)
+                .on('error', errorHandler)
+        ))
         .pipe(plugins.concat(config.files.less.filename))
         .pipe(plugins.less())
-        .pipe(gulp.dest(config.files.less.dest));
+        .pipe(gulp.dest(config.files.less.dest))
+        .pipe(plugins.if(config.tasks.csslint,
+            plugins.csslint(typeof config.tasks.csslint == 'boolean' ? undefined : config.tasks.csslint)))
+        .pipe(plugins.if(config.tasks.csslint, plugins.csslint.reporter()));
+});
+
+gulp.task('js', function () {
+    gulp.src(config.files.js.src)
+        .pipe(plugins.jshint(config.tasks.jshint))
+        .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
 // --- Tests ---
@@ -63,7 +82,7 @@ gulp.task('unit', function (done) {
     karma.start({
         configFile: path.resolve(config.tests.unit),
         singleRun: true
-    }, done).on('error', util.log);
+    }, done).on('error', errorHandler);
 });
 
 gulp.task('e2e', ['connect:e2e'], function (cb) {
@@ -73,7 +92,7 @@ gulp.task('e2e', ['connect:e2e'], function (cb) {
 		configFile: config.tests.e2e
 	})).on('error', function (e) {
 		plugins.connect.serverClose();
-		util.log(e);
+		errorHandler(e);
 		cb();
 	}).on('end', function() {
 		plugins.connect.serverClose();
@@ -99,4 +118,4 @@ gulp.task('server', ['connect:lr', 'open']);
  * and not just the changed ones. Because of this single additional task,
  * we don't need a .pipe(connect.reload()) command after each compile step.
  */
-gulp.task('default', ['server', 'livereload', 'watch']);
+gulp.task('default', ['less', 'js', 'server', 'livereload', 'watch']);
