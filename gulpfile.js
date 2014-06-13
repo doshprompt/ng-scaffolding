@@ -6,6 +6,7 @@ var path = require('path'),
     karma = require('karma').server,
 
     gulp = require('gulp'),
+    util = require('gulp-util'),
     plugins = require('gulp-load-plugins')(),
     config = require('./build/gulp.conf.js');
 
@@ -71,11 +72,11 @@ gulp.task('e2e', ['connect:e2e'], function (cb) {
     }).pipe(plugins.protractor.protractor({
 		configFile: config.tests.e2e
 	})).on('error', function (e) {
-		connect.serverClose();
+		plugins.connect.serverClose();
 		util.log(e);
 		cb();
 	}).on('end', function() {
-		connect.serverClose();
+		plugins.connect.serverClose();
 		cb();
 	});
 });
