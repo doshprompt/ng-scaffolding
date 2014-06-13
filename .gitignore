@@ -29,7 +29,7 @@ build.xml
 node_modules/
 .*
 !.htaccess
-!.bowerrc
+!.*rc
 
 # App
 vendor/
