@@ -11,31 +11,41 @@ var path = require('path'),
     config = require('./build/gulp.conf.js');
 
 function errorHandler (err) {
+    'use strict';
+
     util.beep();
     util.log(err);
-};
+}
 
 // --- Web Server(s) ---
 
 gulp.task('connect:e2e', function (callback) {
+    'use strict';
+
     plugins.connect.server(config.tasks.connect.e2e);
     callback();
 });
 
 gulp.task('connect:lr', function (callback) {
+    'use strict';
+
     plugins.connect.server(config.tasks.connect.lr);
     callback();
 });
 
 gulp.task('open', function (callback) {
+    'use strict';
+
     open('http://localhost:' + config.tasks.connect.lr.port, args.open);
     callback();
 });
 
 // Watch Files for Changes
 gulp.task('watch', function () {
+    'use strict';
+
     gulp.watch(config.files.less.src, ['less']);
-    gulp.watch(config.files.less.js, ['js']);
+    gulp.watch(config.files.less.js, ['jshint:app']);
 });
 
 // ... And Reload
@@ -70,10 +80,34 @@ gulp.task('less', function () {
         .pipe(plugins.if(config.tasks.csslint, plugins.csslint.reporter()));
 });
 
-gulp.task('js', function () {
+// --- JSHint ---
+
+gulp.task('jshint:app', function () {
     gulp.src(config.files.js.src)
         .pipe(plugins.jshint(config.tasks.jshint))
         .pipe(plugins.jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('jshint:tests', function () {
+    gulp.src([
+            'app/src/**/*.spec.js',
+            'app/src/**/*.scenario.js'
+        ])
+        .pipe(plugins.jshint(config.tasks.jshint))
+        .pipe(plugins.jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('jshint:gulpfile', function () {
+    gulp.src('gulpfile.js')
+        .pipe(plugins.jshint(config.tasks.jshint))
+        .pipe(plugins.jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('jshint:ci', function () {
+    gulp.src(config.files.js.src)
+        .pipe(plugins.jshint(config.tasks.jshint))
+        .pipe(plugins.jshint.reporter('default'))
+        .pipe(plugins.jshint.reporter('fail'));
 });
 
 // --- Tests ---
@@ -118,4 +152,4 @@ gulp.task('server', ['connect:lr', 'open']);
  * and not just the changed ones. Because of this single additional task,
  * we don't need a .pipe(connect.reload()) command after each compile step.
  */
-gulp.task('default', ['less', 'js', 'server', 'livereload', 'watch']);
+gulp.task('default', ['less', 'jshint:app', 'server', 'livereload', 'watch']);
