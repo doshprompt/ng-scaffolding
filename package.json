@@ -4,7 +4,9 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "bower install && webdriver-manager update",
+    "start": "gulp",
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -28,13 +30,22 @@
   "private": true,
   "devDependencies": {
     "gulp": "^3.8.0",
+    "gulp-changed": "^0.4.0",
     "gulp-concat": "^2.2.0",
+    "gulp-connect": "^2.0.5",
+    "gulp-if": "^1.2.1",
     "gulp-less": "^1.2.3",
-    "gulp-recess": "^0.3.1",
+    "gulp-load-plugins": "^0.5.1",
+    "gulp-protractor": "0.0.7",
     "gulp-util": "^2.2.16",
+    "gulp-watch": "^0.6.6",
     "karma": "^0.12.16",
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
-    "matchdep": "^0.3.0"
+    "open": "0.0.5",
+    "phantomjs": "^1.9.7-8",
+    "protractor": "^0.24.1",
+    "rimraf": "^2.2.8",
+    "yargs": "^1.2.2"
   }
 }
