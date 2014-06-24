@@ -1,9 +1,10 @@
 var path = require('path'),
     args = require('yargs').argv,
 
-    open = require('open'),
-    rimraf = require('rimraf'),
+    del = require('del'),
     karma = require('karma').server,
+    browserSync = require('browser-sync'),
+    reload = browserSync.reload,
 
     gulp = require('gulp'),
     util = require('gulp-util'),
@@ -22,21 +23,31 @@ function errorHandler (err) {
 gulp.task('connect:e2e', function (callback) {
     'use strict';
 
-    plugins.connect.server(config.tasks.connect.e2e);
+    browserSync.init({
+        server: {
+            baseDir: 'app'
+        },
+        ports: {
+            min: 1338
+        },
+        open: false
+    });
+
     callback();
 });
 
 gulp.task('connect:lr', function (callback) {
     'use strict';
 
-    plugins.connect.server(config.tasks.connect.lr);
-    callback();
-});
+    browserSync.init({
+        server: {
+            baseDir: 'app'
+        },
+        ports: {
+            min: 1337
+        }
+    });
 
-gulp.task('open', function (callback) {
-    'use strict';
-
-    open('http://localhost:' + config.tasks.connect.lr.port, args.open);
     callback();
 });
 
@@ -45,7 +56,8 @@ gulp.task('watch', function () {
     'use strict';
 
     gulp.watch(config.files.less.src, ['less']);
-    gulp.watch(config.files.less.js, ['jshint:app']);
+    gulp.watch(config.files.html, reload);
+    gulp.watch(config.files.js.src, ['jshint:app']);
 });
 
 // ... And Reload
@@ -56,12 +68,11 @@ gulp.task('livereload', function () {
             config.files.less.dest + config.files.less.filename
         ))
         .pipe(plugins.watch())
-        .pipe(plugins.connect.reload());
+        .pipe(reload({ stream: true }));
 });
 
-gulp.task('clean', function (cb) {
-    rimraf(config.files.distDir, cb);
-});
+// Clean Output Directory
+gulp.task('clean', del.bind(null, [ config.files.distDir ]));
 
 gulp.task('less', function () {
     gulp.src(config.files.less.src)
@@ -77,7 +88,8 @@ gulp.task('less', function () {
         .pipe(gulp.dest(config.files.less.dest))
         .pipe(plugins.if(config.tasks.csslint,
             plugins.csslint(typeof config.tasks.csslint == 'boolean' ? undefined : config.tasks.csslint)))
-        .pipe(plugins.if(config.tasks.csslint, plugins.csslint.reporter()));
+        .pipe(plugins.if(config.tasks.csslint, plugins.csslint.reporter()))
+        .pipe(reload({ stream: true }));
 });
 
 // --- JSHint ---
@@ -85,7 +97,8 @@ gulp.task('less', function () {
 gulp.task('jshint:app', function () {
     gulp.src(config.files.js.src)
         .pipe(plugins.jshint(config.tasks.jshint))
-        .pipe(plugins.jshint.reporter('jshint-stylish'));
+        .pipe(plugins.jshint.reporter('jshint-stylish'))
+        .pipe(reload({ stream: true }));
 });
 
 gulp.task('jshint:tests', function () {
@@ -116,7 +129,7 @@ gulp.task('unit', function (done) {
     karma.start({
         configFile: path.resolve(config.tests.unit),
         singleRun: true
-    }, done).on('error', errorHandler);
+    }, done);
 });
 
 gulp.task('e2e', ['connect:e2e'], function (cb) {
@@ -125,13 +138,12 @@ gulp.task('e2e', ['connect:e2e'], function (cb) {
     }).pipe(plugins.protractor.protractor({
 		configFile: config.tests.e2e
 	})).on('error', function (e) {
-		plugins.connect.serverClose();
 		errorHandler(e);
-		cb();
+        cb();
+        process.exit(1); // hack until browserSync.close() is supported to shut down and cleanup.
 	}).on('end', function() {
-		plugins.connect.serverClose();
 		cb();
-	});
+	}).pipe(plugins.exit()); // ensures that the task is terminated after finishing.
 });
 
 /*
@@ -142,7 +154,7 @@ gulp.task('test', ['unit', 'e2e']);
 /*
  * $ gulp server
  */
-gulp.task('server', ['connect:lr', 'open']);
+gulp.task('server', ['connect:lr']);
 
 /*
  * $ gulp
@@ -152,4 +164,4 @@ gulp.task('server', ['connect:lr', 'open']);
  * and not just the changed ones. Because of this single additional task,
  * we don't need a .pipe(connect.reload()) command after each compile step.
  */
-gulp.task('default', ['less', 'jshint:app', 'server', 'livereload', 'watch']);
+gulp.task('default', ['less', 'jshint:app', 'server', 'watch']);
