@@ -121,17 +121,21 @@ myApp
 #### Files
 
 - Configs: `{*.conf.js|*.conf.json}`
+
 ===
 - Controllers: `*.ctrl.js`
 - Services: `*.svc.js`
 - Routing: `*.route.js`
 - Templates: `*.part.html`
+
 ===
 - Resource Files: `*.lang.json` 
+
 ===
 - Unit Tests: `*.spec.js`
 - E2E Tests: `*.scenario.js`
 - Mocks: `*.mock.js`
+
 ===
 - LESS: `*.less`
 
