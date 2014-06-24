@@ -120,14 +120,28 @@ myApp
 
 #### Files
 
+- Configs: `{*.conf.js|*.conf.json}`
+
+---
+
 - Controllers: `*.ctrl.js`
-- Resource Files: `*.lang.json`
+- Services: `*.svc.js`
 - Routing: `*.route.js`
 - Templates: `*.part.html`
+
+---
+
+- Resource Files: `*.lang.json`
+
+---
+
 - Unit Tests: `*.spec.js`
 - E2E Tests: `*.scenario.js`
+- Mocks: `*.mock.js`
+
+---
+
 - LESS: `*.less`
-- Configs: `{*.conf.js|*.conf.json}`
 
 #### Angular-specific
 
@@ -152,3 +166,7 @@ myApp
 - [Anti Patterns](https://github.com/angular/angular.js/wiki/Anti-Patterns)
 - [AngularJS Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uyo6cb12dt6w)
 - [Best Practice Recommendations for Angular App Structure](https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub)
+
+**Other Resources**
+
+- [Community-driven set of best practices for AngularJS application development](https://github.com/mgechev/angularjs-style-guide)
