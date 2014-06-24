@@ -129,11 +129,11 @@ myApp
 - Routing: `*.route.js`
 - Templates: `*.part.html`
 
----
+===
 
 - Resource Files: `*.lang.json`
 
----
+===
 
 - Unit Tests: `*.spec.js`
 - E2E Tests: `*.scenario.js`
