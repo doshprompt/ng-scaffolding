@@ -45,7 +45,6 @@ However, `ngScaffolding` is simpler and differs in a few ways:
 - Built-in development server which reloads the page on file changes.
 - Automagically re-run tests on file changes.
 - Use Less to simplify your CSS.
-- 
 
 ### Purpose
 
