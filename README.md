@@ -23,6 +23,7 @@ and borrows heavily from the following list including but not limited to:
 
 - [ngBoilerplate](http://bit.ly/ngBoilerplate)
 - [ng-launchpad](http://www.samora.me/ng-launchpad)
+- [Web Starter Kit](https://developers.google.com/web/starter-kit/)
 
 ##### Notable Differences
 
@@ -121,22 +122,14 @@ myApp
 #### Files
 
 - Configs: `{*.conf.js|*.conf.json}`
-
-===
 - Controllers: `*.ctrl.js`
 - Services: `*.svc.js`
 - Routing: `*.route.js`
 - Templates: `*.part.html`
-
-===
 - Resource Files: `*.lang.json` 
-
-===
 - Unit Tests: `*.spec.js`
 - E2E Tests: `*.scenario.js`
 - Mocks: `*.mock.js`
-
-===
 - LESS: `*.less`
 
 #### Angular-specific
@@ -144,6 +137,7 @@ myApp
 - Controller Names: `*Control`
 - Module Names: `TODO`
 - Services: `TODO`
+- Models: `TODO`
 
 ### Resources
 
