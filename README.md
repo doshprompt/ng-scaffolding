@@ -43,7 +43,7 @@ However, `ngScaffolding` is simpler and differs in a few ways:
 - Integrated development server.
 - [Protractor](https://github.com/angular/protractor) integration for end-to-end (e2e) tests.
 - Development build has a similar directory structure to production. However the files are not minified and compressed.
-- No planned support for CoffeeScript, it's all in vanilla JavaScript.
+- No planned support for CoffeeScript, it's all in plain old vanilla JavaScript (and always will be).
 
 `ngScaffolding` is a simpler than `ngBoilerplate` on purpose, yet keeps the same basic principles and ideas.
 
