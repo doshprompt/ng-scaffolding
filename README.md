@@ -7,6 +7,7 @@
 - [Overview](#overview)
     - [Purpose](#purpose)
     - [Philosophy](#philosophy)
+    - [Components](#components)
     - [Browser Support](#browser-support)
 - [Quickstart](#quickstart)
 - [Learn](#learn)
@@ -17,7 +18,9 @@
     - [Tooling](#tooling)
         - [Node](#node)
         - [Gulp](#gulp)
+    - [The Build System](#the-build-system)
         - [Gulp Commands](#gulp-commands)
+        - [Master Config File](#master-config-file)
     - [Resources](#resources)
 
 ## Overview
@@ -56,17 +59,6 @@ However, `ngScaffolding` is simpler and differs in a few ways:
 
 `ngScaffolding` is designed to make life easy by providing a basic framework with which to kickstart AngularJS projects.
 It contains a best-practice directory structure to ensure code reusability and maximum scalability.
-`ngScaffolding` also comes prepackaged with the most popular design frameworks around:
-
-- [Twitter Bootstrap](http://getbootstrap.com),
-- [AngularStrap](http://mgcrea.github.io/angular-strap),
-- [Font Awesome](http://fortawesome.github.com/Font-Awesome), and
-- [LESS](http://lesscss.org). Lastly, it contains a sophisticated
-- [Gulp](http://gulpjs.com)-based build system to ensure maximum productivity.
-
-These have already been added because I believe they are the bare minimum components you may need.
-Add or remove according to your requirements.
-Otherwise all you have to do is clone it and start coding!
 
 ### Philosophy
 
@@ -92,6 +84,20 @@ complete with a REST backend and authentication and authorization,
 then take a look at [`angular-app`](http://github.com/angular-app/angular-app),
 which does just that - and does it well.
 
+### Components
+
+`ngScaffolding` also comes prepackaged with the most popular design frameworks around.
+The following have already been added because I believe they are the bare minimum components you may need.
+Add or remove according to your requirements.
+
+- [AngularJS](http://angularjs.org)
+- [Twitter Bootstrap](http://getbootstrap.com/)
+- [AngularStrap](http://mcgrea.github.io/angularstrap)
+- [Font Awesome](http://fontawesome.io)
+- [LESS](http://lesscss.org)
+
+Lastly, it contains a sophisticated [Gulp](http://gulpjs.com)-based build system to ensure maximum productivity.
+
 ### Browser Support
 
 At present, I officially aim to support the following browsers:
@@ -111,7 +117,7 @@ but merely that my focus will be on ensuring that the project works great in the
 
 ## Quickstart
 
-[Download]() the project or clone this repository and build on what is already included in the `app` directory.
+[Download](https://github.com/doshprompt/ng-scaffolding/archive/master.zip) the project or clone this repository and build on what is already included in the `app` directory.
 
 Pre-requisites: You will need to have installed Node.js and Git.
 
@@ -185,11 +191,11 @@ myApp
 
 If you would like to use the tooling provided as is, make sure your system has [Node.js](http://nodejs.org) and [gulp.js](http://gulpjs.com) installed.
 
-### Node
+#### Node
 
 Let's check to see if you already have Node installed. Bring up a terminal and type `node --version`. If Node responds, and if it shows a version at or above v0.10.x, proceed to checking if you have Gulp installed too. If you require Node, go to [nodejs.org](http://nodejs.org/) and click on the big green Install button.
 
-### Gulp
+#### Gulp
 
 Bring up a terminal and type `gulp --version`. If Gulp is installed it should return a version number at or above 3.5.x. If you don't see any errors, proceed to the Gulp commands section. If you need to install Gulp, open up a terminal and type in the following:
 
@@ -205,11 +211,13 @@ $ npm install
 
 That's it! You should now have everything needed to use the Gulp tools in ngScaffolding.
 
-### Gulp Commands
+### The Build System
+
+#### Gulp Commands
 
 You can now use Gulp with the following commands to stay productive during development:
 
-#### Watch For Changes & Refresh Across Devices
+##### Watch For Changes & Refresh Across Devices
 
 ```sh
 $ gulp server
@@ -217,7 +225,7 @@ $ gulp server
 
 This outputs an IP address you can use to locally test and another that can be used on devices connected to your network.
 
-#### Build & Optimize
+##### Build & Optimize
 
 ```sh
 $ gulp
