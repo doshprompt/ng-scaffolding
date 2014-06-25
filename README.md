@@ -189,21 +189,30 @@ myApp
 
 ### Tooling
 
-If you would like to use the tooling provided as is, make sure your system has [Node.js](http://nodejs.org) and [gulp.js](http://gulpjs.com) installed.
+If you would like to use the tooling provided as is,
+make sure your system has [Node.js](http://nodejs.org) and [gulp.js](http://gulpjs.com) installed.
 
 #### Node
 
-Let's check to see if you already have Node installed. Bring up a terminal and type `node --version`. If Node responds, and if it shows a version at or above v0.10.x, proceed to checking if you have Gulp installed too. If you require Node, go to [nodejs.org](http://nodejs.org/) and click on the big green Install button.
+Let's check to see if you already have Node installed.
+Bring up a terminal and type `node --version`.
+If Node responds, and if it shows a version at or above v0.10.x, proceed to checking if you have Gulp installed too.
+If you require Node, go to [nodejs.org](http://nodejs.org/) and click on the big green Install button.
 
 #### Gulp
 
-Bring up a terminal and type `gulp --version`. If Gulp is installed it should return a version number at or above 3.5.x. If you don't see any errors, proceed to the Gulp commands section. If you need to install Gulp, open up a terminal and type in the following:
+Bring up a terminal and type `gulp --version`.
+If Gulp is installed it should return a version number at or above 3.5.x.
+If you don't see any errors, proceed to the Gulp commands section.
+If you need to install Gulp, open up a terminal and type in the following:
 
 ```sh
 $ npm install --global gulp
 ```
 
-This will install Gulp globally. Depending on your user account, you may need to gain elevated permissions using `sudo` (i.e `sudo npm install --global gulp`). Next, install the local dependencies Web Starter Kit requires:
+This will install Gulp globally.
+Depending on your user account, you may need to gain elevated permissions using `sudo` (i.e `sudo npm install --global gulp`).
+Next, install the local dependencies `ngScaffolding` requires:
 
 ```sh
 $ npm install
