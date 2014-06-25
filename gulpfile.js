@@ -9,7 +9,9 @@ var path = require('path'),
     gulp = require('gulp'),
     util = require('gulp-util'),
     plugins = require('gulp-load-plugins')(),
-    config = require('./build/gulp.conf.js');
+    config = require('./build/gulp.conf.js'),
+
+    bs; // save a reference to the running instance of browserSync
 
 function errorHandler (err) {
     'use strict';
@@ -23,7 +25,8 @@ function errorHandler (err) {
 gulp.task('connect:e2e', function (callback) {
     'use strict';
 
-    browserSync.init({
+    bs = browserSync({
+        notify: false,
         server: {
             baseDir: 'app'
         },
@@ -39,7 +42,8 @@ gulp.task('connect:e2e', function (callback) {
 gulp.task('connect:lr', function (callback) {
     'use strict';
 
-    browserSync.init({
+    browserSync({
+        notify: false,
         server: {
             baseDir: 'app'
         },
@@ -60,20 +64,6 @@ gulp.task('watch', function () {
     gulp.watch(config.files.js.src, ['jshint:app']);
 });
 
-// ... And Reload
-gulp.task('livereload', function () {
-    gulp.src([].concat(
-            config.files.html,
-            config.files.js.src,
-            config.files.less.dest + config.files.less.filename
-        ))
-        .pipe(plugins.watch())
-        .pipe(reload({ stream: true }));
-});
-
-// Clean Output Directory
-gulp.task('clean', del.bind(null, [ config.files.distDir ]));
-
 gulp.task('less', function () {
     gulp.src(config.files.less.src)
         .pipe(plugins.changed(config.files.sourceDir, {
@@ -92,7 +82,7 @@ gulp.task('less', function () {
         .pipe(reload({ stream: true }));
 });
 
-// --- JSHint ---
+// --- Lint JavaScript ---
 
 gulp.task('jshint:app', function () {
     gulp.src(config.files.js.src)
@@ -138,30 +128,36 @@ gulp.task('e2e', ['connect:e2e'], function (cb) {
     }).pipe(plugins.protractor.protractor({
 		configFile: config.tests.e2e
 	})).on('error', function (e) {
+        bs.cleanup(); // stop server, cleanup events etc. and shutdown
 		errorHandler(e);
         cb();
-        process.exit(1); // hack until browserSync.close() is supported to shut down and cleanup.
+        process.exit(1); // Exit the process
 	}).on('end', function() {
+        bs.cleanup();
 		cb();
-	}).pipe(plugins.exit()); // ensures that the task is terminated after finishing.
+	}).pipe(plugins.exit()); // ensures that the task is terminated after it has finished running.
 });
 
 /*
+ * $ gulp clean
+ *
+ * Clean Output Directory
+ */
+gulp.task('clean', del.bind(null, [ config.files.distDir ]));
+
+/*
  * $ gulp test
+ *
+ * Runs both unit and end-to-end tests
  */
 gulp.task('test', ['unit', 'e2e']);
 
 /*
  * $ gulp server
- */
-gulp.task('server', ['connect:lr']);
-
-/*
- * $ gulp
  *
  * The custom watch() function allows us to just reload the changed files,
  * whereas the built-in gulp.watch() command would reload all files
  * and not just the changed ones. Because of this single additional task,
  * we don't need a .pipe(connect.reload()) command after each compile step.
  */
-gulp.task('default', ['less', 'jshint:app', 'server', 'watch']);
+gulp.task('server', ['less', 'jshint:app', 'connect:lr', 'watch']);
