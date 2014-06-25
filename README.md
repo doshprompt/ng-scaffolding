@@ -7,11 +7,17 @@
 - [Overview](#overview)
     - [Purpose](#purpose)
     - [Philosophy](#philosophy)
+    - [Browser Support](#browser-support)
+- [Quickstart](#quickstart)
 - [Learn](#learn)
     - [Overall Directory Structure](#overall-directory-structure)
     - [Naming Conventions](#file-naming-conventions)
         - [Files](#files)
         - [ng-specific](#angular-specific)
+    - [Tooling](#tooling)
+        - [Node](#node)
+        - [Gulp](#gulp)
+        - [Gulp Commands](#gulp-commands)
     - [Resources](#resources)
 
 ## Overview
@@ -86,6 +92,43 @@ complete with a REST backend and authentication and authorization,
 then take a look at [`angular-app`](http://github.com/angular-app/angular-app),
 which does just that - and does it well.
 
+### Browser Support
+
+At present, I officially aim to support the following browsers:
+
+* IE10, IE11, IE Mobile 10
+* FF 30, 31
+* Chrome 34, 35
+* Safari 7, 8
+* Opera 23, 24
+* iOS Safari 7, 8
+* Opera Coast
+* Android / Chrome 4.4, 4.4.3
+* BlackBerry 10
+
+This is not to say that ngScaffolding cannot be used in browsers older than those reflected,
+but merely that my focus will be on ensuring that the project works great in the above.
+
+## Quickstart
+
+[Download]() the project or clone this repository and build on what is already included in the `app` directory.
+
+Pre-requisites: You will need to have installed Node.js and Git.
+
+Then run the following commands in a terminal window:
+
+```sh
+$ git clone git://github.com/doshprompt/ng-scaffolding
+$ cd ng-scaffolding
+$ sudo npm install -g gulp bower
+$ npm install
+$ gulp
+```
+
+This should automatically open up a new tab/window in your default browser.
+
+happy hacking, enjoy!
+
 ## Learn
 
 ### Overall Directory Structure
@@ -137,6 +180,50 @@ myApp
 - Module Names: `TODO`
 - Services: `TODO`
 - Models: `TODO`
+
+### Tooling
+
+If you would like to use the tooling provided as is, make sure your system has [Node.js](http://nodejs.org) and [gulp.js](http://gulpjs.com) installed.
+
+### Node
+
+Let's check to see if you already have Node installed. Bring up a terminal and type `node --version`. If Node responds, and if it shows a version at or above v0.10.x, proceed to checking if you have Gulp installed too. If you require Node, go to [nodejs.org](http://nodejs.org/) and click on the big green Install button.
+
+### Gulp
+
+Bring up a terminal and type `gulp --version`. If Gulp is installed it should return a version number at or above 3.5.x. If you don't see any errors, proceed to the Gulp commands section. If you need to install Gulp, open up a terminal and type in the following:
+
+```sh
+$ npm install --global gulp
+```
+
+This will install Gulp globally. Depending on your user account, you may need to gain elevated permissions using `sudo` (i.e `sudo npm install --global gulp`). Next, install the local dependencies Web Starter Kit requires:
+
+```sh
+$ npm install
+```
+
+That's it! You should now have everything needed to use the Gulp tools in ngScaffolding.
+
+### Gulp Commands
+
+You can now use Gulp with the following commands to stay productive during development:
+
+#### Watch For Changes & Refresh Across Devices
+
+```sh
+$ gulp server
+```
+
+This outputs an IP address you can use to locally test and another that can be used on devices connected to your network.
+
+#### Build & Optimize
+
+```sh
+$ gulp
+```
+
+Build and optimize the current project, ready for deployment. This includes linting as well as image, script, stylesheet and HTML optimization and minification.
 
 ### Resources
 
